@@ -1,5 +1,6 @@
 # bored
 A long forgotten LED-matrix turned personal assistant / AI testing grounds.
+Check out [the Trello](https://trello.com/b/XVumFO86/bored) for updates.
 
 ## Current Goals
 1. Calendar : Display the date and month
