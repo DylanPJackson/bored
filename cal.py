@@ -7,15 +7,20 @@ import serial
 ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
 ser.flush()
 date = datetime.datetime.now()
+on_boot = 0
 
 def job():
+    global on_boot
     num_day = date.strftime('%d') + "\n"
     word_day = date.strftime('%A') + "\n"
     month = date.strftime('%B') + "\n"
     os.system('arduino-cli compile --fqbn arduino:avr:mega /home/pi/Desktop/bored/calendar/')
     time.sleep(7)
     os.system('arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:mega /home/pi/Desktop/bored/calendar/')
-    ser.write('test\n')
+    if on_boot:
+        ser.write('test\n')
+    else:
+        on_boot = 1
     time.sleep(1)
     ser.write(month) 
     time.sleep(1)
