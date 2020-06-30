@@ -5,7 +5,6 @@ import os
 import serial
 
 ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
-on_boot = 1
 
 def reduce_string(string):
     """
@@ -31,7 +30,6 @@ def job():
     Gathers the month, date, and day of the week. Updates the arduino sketch
     in the case of any changes. Write date information to the arduino.  
     """
-    global on_boot
     # Clear the buffer on the serial port
     ser.flush()
     date = datetime.datetime.now()
@@ -42,12 +40,6 @@ def job():
     time.sleep(10)
     os.system('/home/pi/bin/arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:mega /home/pi/Desktop/bored/calendar/')
     time.sleep(7)
-    # Weird behavior if this is not done
-    if on_boot:
-        on_boot = 0
-    else:
-        ser.write('test\n')
-    time.sleep(1)
     ser.write(month) 
     time.sleep(1)
     ser.write(num_day)
