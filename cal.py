@@ -35,6 +35,7 @@ def job():
     date = datetime.datetime.now()
     num_day = reduce_string(date.strftime('%d'))
     word_day = reduce_string(date.strftime('%A'))
+    word_day = word_day[:3]
     month = reduce_string(date.strftime('%B'))
     os.system('/home/pi/bin/arduino-cli compile --fqbn arduino:avr:mega /home/pi/Desktop/bored/calendar/')
     time.sleep(10)
