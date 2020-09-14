@@ -43,5 +43,5 @@ passion project of mine.
 2. Weather : Display the temperature with a relevant graphic - Planned
 3. Voice interface : Connect Alexa to Pi to allow for voice issued updates to the
 board - Planned
-4. Chess : Play chess against a personalized AI opponent, or against a friend - Just an idea
-5. Reminders : Interactive display of daily reminders 
+4. Reminders : Interactive display of daily reminders - Planned 
+5. Chess : Play chess against a personalized AI opponent, or against a friend - Just an idea
