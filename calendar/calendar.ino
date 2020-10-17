@@ -1,3 +1,12 @@
+/*
+   calendar.ino
+
+   Handles display of calendar data in a month-date-day format, sent from
+   the Arduino over USB.  
+
+   Dylan P. Jackson
+*/
+
 #include <Adafruit_GFX.h>
 #include <RGBmatrixPanel.h>
 
@@ -14,6 +23,7 @@ RGBmatrixPanel matrix(A, B, C, D, CLK, LAT, OE, false);
 void setup() {
     matrix.begin();
     Serial.begin(9600);
+    // Clear the board, and setup display defaults
     matrix.fillRect(0, 0, 32, 32, matrix.Color333(0,0,0));
     matrix.setCursor(0,0);
     matrix.setTextSize(1);
