@@ -21,7 +21,7 @@ def reduce_string(string):
         The sliced string with a newline character. Helpful on Arduino side
         of things
     """
-    return string[:5] + "\n"
+    return string[:3] + "\n"
 
 def job():
     """
@@ -35,7 +35,6 @@ def job():
     date = datetime.datetime.now()
     num_day = reduce_string(date.strftime('%d'))
     word_day = reduce_string(date.strftime('%A'))
-    word_day = word_day[:3]
     month = reduce_string(date.strftime('%B'))
     os.system('/home/pi/bin/arduino-cli compile --fqbn arduino:avr:mega /home/pi/Desktop/bored/calendar/')
     time.sleep(10)
@@ -48,7 +47,7 @@ def job():
     ser.write(word_day)
 
 job() # Do it now
-schedule.every().day.at("00:01").do(job) # And then do it at the start of the day 
+schedule.every().day.at("08:00").do(job) # And then do it at the start of every hour 
 
 while True:
     schedule.run_pending()

@@ -17,7 +17,7 @@ void setup() {
     matrix.fillRect(0, 0, 32, 32, matrix.Color333(0,0,0));
     matrix.setCursor(0,0);
     matrix.setTextSize(1);
-    matrix.setTextColor(matrix.Color333(1,0,1));
+    matrix.setTextColor(matrix.Color333(3,1,0));
 }
 
 void loop() {
@@ -27,14 +27,15 @@ void loop() {
         String num_day = Serial.readStringUntil('\n');
         delay(1000);
         String word_day = Serial.readStringUntil('\n');
+        matrix.setCursor(7,0);
         matrix.print(month);
-        matrix.setCursor(0,8);
+        matrix.setCursor(5,9);
         matrix.setTextSize(2);
-        matrix.setTextColor(matrix.Color333(2,0,1));
+        matrix.setTextColor(matrix.Color333(1,0,0));
         matrix.print(num_day);
-        matrix.setCursor(0,24);
+        matrix.setCursor(7,25);
         matrix.setTextSize(1);
-        matrix.setTextColor(matrix.Color333(1,0,1));
+        matrix.setTextColor(matrix.Color333(3,1,0));
         matrix.print(word_day);
     }
 }
