@@ -23,7 +23,6 @@ def set_timer(dur):
 
 def main():
     dur = str(sys.argv[1]) + "\n"
-    print(dur)
     set_timer(dur)
 
 main()

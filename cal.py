@@ -47,7 +47,7 @@ def job():
     ser.write(word_day)
 
 job() # Do it now
-schedule.every().day.at("08:00").do(job) # And then do it at the start of every hour 
+schedule.every().day.at("00:01").do(job) # And then do it at the start of every hour 
 
 while True:
     schedule.run_pending()
